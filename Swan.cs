@@ -1,3 +1,6 @@
 ﻿namespace Exercise3;
 
-public class Animal { }
+public class Swan
+{
+
+}

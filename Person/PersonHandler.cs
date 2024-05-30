@@ -3,6 +3,17 @@
 public class PersonHandler
 {
     private List<Person> _persons = new();
+    
+
+    public Person CreatePerson(
+        string fname, 
+        string lname)
+    {
+        var person = new Person(fname, lname);
+        _persons.Add(person);
+        return person;
+    }
+
 
     public Person CreatePerson(
         string fname, 
@@ -16,17 +27,24 @@ public class PersonHandler
         return person;
     }
 
+
     public void SetAge(Person person, int age) => person.SetAge(age);
+
 
     public void SetHeight(Person person, double height) => person.SetHeight(height);
 
+
     public void SetWeight(Person person, double weight) => person.SetWeight(weight);
+
 
     public List<Person> GetPersons() => _persons;
 
+
     public void AddPerson(Person person) => _persons.Add(person);
 
+
     public void RemovePerson(Person person) => _persons.Remove(person);
+
 
     public List<Person> FindPersons(
         string? fname = null,

@@ -4,9 +4,6 @@ namespace Exercise3
 {
     public class Person
     {
-        [Range(1, int.MaxValue, ErrorMessage = "Age must be greater than 0")]
-        public int Age { get; private set; }
-
         [Required]
         [StringLength(10, MinimumLength = 2, ErrorMessage = "FName must be between 2 and 10 characters")]
         public string FName { get; private set; }
@@ -14,6 +11,9 @@ namespace Exercise3
         [Required]
         [StringLength(15, MinimumLength = 3, ErrorMessage = "LName must be between 3 and 15 characters")]
         public string LName { get; private set; }
+
+        [Range(1, int.MaxValue, ErrorMessage = "Age must be greater than 0")]
+        public int Age { get; private set; }
 
         [Range(1.0, double.MaxValue, ErrorMessage = "Height must be greater than or equal to 1.00")]
         public double Height { get; private set; }
@@ -37,6 +37,8 @@ namespace Exercise3
 
             Validate();
         }
+
+        public override string ToString() => $"{FName} {LName} {Age} {Height} {Weight}";
 
         public void SetAge(int age) => Age = IsValidValue(nameof(Age), age) ? age : Age;
 
